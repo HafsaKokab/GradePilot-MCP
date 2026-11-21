@@ -46,6 +46,31 @@ mcp.tool()(get_semester_courses.func)
 mcp.tool()(get_remaining_credit_hours.func)
 mcp.tool()(save_report.func)
 
+# Health check & root endpoints for Render deployment & browser testing
+from starlette.requests import Request
+from starlette.responses import JSONResponse
+
+@mcp.custom_route("/", methods=["GET", "HEAD"])
+async def root_status(request: Request) -> JSONResponse:
+    return JSONResponse({
+        "status": "healthy",
+        "service": "PUCIT CGPA Guider MCP Server",
+        "endpoint": "/mcp",
+        "tools": [
+            "marks_to_grade_points",
+            "calculate_semester_gpa",
+            "calculate_new_cgpa",
+            "required_gpa_for_target",
+            "get_semester_courses",
+            "get_remaining_credit_hours",
+            "save_report",
+        ]
+    })
+
+@mcp.custom_route("/health", methods=["GET", "HEAD"])
+async def health_check(request: Request) -> JSONResponse:
+    return JSONResponse({"status": "ok"})
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))

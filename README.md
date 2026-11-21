@@ -206,5 +206,5 @@ FASTMCP_KEY=your_secret_token_if_configured
 ## 13. Submission & Links
 
 - **Public MCP Server URL**: `[INSERT_PUBLIC_MCP_URL_HERE]` *(To be added upon deployment)*
-- **GitHub Repository**: `[INSERT_GITHUB_REPO_URL_HERE]` *(To be added upon pushing)*
+- **GitHub Repository**: [GradePilot-MCP](https://github.com/HafsaKokab/GradePilot-MCP)
 - **Roll Number**: `BCSF24M051`
