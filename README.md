@@ -11,9 +11,9 @@ An AI advisor that calculates grades, projects your CGPA, and remembers every co
 ![SQLite](https://img.shields.io/badge/Memory-SQLite-003B57?logo=sqlite&logoColor=white)
 ![Deployed](https://img.shields.io/badge/Deployed-Prefect%20Horizon-2ea44f)
 
-| Assignment | Roll Number | Repository | Live MCP Server |
-|:-:|:-:|:-:|:-:|
-| 3 | `BCSF24M051` | [HafsaKokab/GradePilot-MCP](https://github.com/HafsaKokab/GradePilot-MCP) | `https://compatible-olive-pheasant.fastmcp.app/mcp` |
+| Repository | Live MCP Server |
+|:-:|:-:|
+| [HafsaKokab/GradePilot-MCP](https://github.com/HafsaKokab/GradePilot-MCP) | `https://compatible-olive-pheasant.fastmcp.app/mcp` |
 
 ---
 
