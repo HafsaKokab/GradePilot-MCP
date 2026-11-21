@@ -1,24 +1,19 @@
-<h1 align="center">GradePilot-MCP</h1>
+# GradePilot-MCP
 
-<p align="center">
-  <b>PUCIT BS(CS) Academic Advisor &amp; CGPA Guider</b><br>
-  An AI advisor that calculates grades, projects your CGPA, and remembers every conversation.
-</p>
+**PUCIT BS(CS) Academic Advisor & CGPA Guider**
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/FastMCP-4.2.3-6C47FF" alt="FastMCP">
-  <img src="https://img.shields.io/badge/LangChain-LangGraph-1C3C3C" alt="LangGraph">
-  <img src="https://img.shields.io/badge/LLM-Groq-F55036" alt="Groq">
-  <img src="https://img.shields.io/badge/Memory-SQLite-003B57?logo=sqlite&logoColor=white" alt="SQLite">
-  <img src="https://img.shields.io/badge/Deployed-Prefect%20Horizon-2ea44f" alt="Prefect Horizon">
-</p>
+An AI advisor that calculates grades, projects your CGPA, and remembers every conversation.
 
-<p align="center">
-  <b>Assignment 3</b> &nbsp;·&nbsp; Roll No. <code>BCSF24M051</code> &nbsp;·&nbsp;
-  <a href="https://github.com/HafsaKokab/GradePilot-MCP">GitHub</a> &nbsp;·&nbsp;
-  <code>https://compatible-olive-pheasant.fastmcp.app/mcp</code>
-</p>
+![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
+![FastMCP](https://img.shields.io/badge/FastMCP-4.2.3-6C47FF)
+![LangGraph](https://img.shields.io/badge/LangChain-LangGraph-1C3C3C)
+![Groq](https://img.shields.io/badge/LLM-Groq-F55036)
+![SQLite](https://img.shields.io/badge/Memory-SQLite-003B57?logo=sqlite&logoColor=white)
+![Deployed](https://img.shields.io/badge/Deployed-Prefect%20Horizon-2ea44f)
+
+| Assignment | Roll Number | Repository | Live MCP Server |
+|:-:|:-:|:-:|:-:|
+| 3 | `BCSF24M051` | [HafsaKokab/GradePilot-MCP](https://github.com/HafsaKokab/GradePilot-MCP) | `https://compatible-olive-pheasant.fastmcp.app/mcp` |
 
 ---
 
