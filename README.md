@@ -11,10 +11,6 @@ An AI advisor that calculates grades, projects your CGPA, and remembers every co
 ![SQLite](https://img.shields.io/badge/Memory-SQLite-003B57?logo=sqlite&logoColor=white)
 ![Deployed](https://img.shields.io/badge/Deployed-Prefect%20Horizon-2ea44f)
 
-| Repository | Live MCP Server |
-|:-:|:-:|
-| [HafsaKokab/GradePilot-MCP](https://github.com/HafsaKokab/GradePilot-MCP) | `https://compatible-olive-pheasant.fastmcp.app/mcp` |
-
 ---
 
 ## Overview
@@ -251,11 +247,8 @@ python agent.py                  # terminal 2
 
 ---
 
-## Submission Details
+## Project Links
 
-| | |
-|---|---|
-| **Student Roll Number** | `BCSF24M051` |
-| **GitHub Repository** | [github.com/HafsaKokab/GradePilot-MCP](https://github.com/HafsaKokab/GradePilot-MCP) |
-| **Live MCP Server** | `https://compatible-olive-pheasant.fastmcp.app/mcp` |
-| **Deployment Platform** | Prefect Horizon |
+- **GitHub Repository:** https://github.com/HafsaKokab/GradePilot-MCP
+- **Live MCP Server:** https://compatible-olive-pheasant.fastmcp.app/mcp
+- **Deployment Platform:** Prefect Horizon
