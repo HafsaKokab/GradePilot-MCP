@@ -208,8 +208,16 @@ def save_report(filename: str, content: str) -> str:
         if not clean_name.endswith((".txt", ".md")):
             clean_name += ".txt"
 
-        with open(clean_name, "w", encoding="utf-8") as f:
-            f.write(content)
+        # Try saving in current directory; fall back to temp dir if file system is read-only (e.g. Lambda/Horizon)
+        try:
+            with open(clean_name, "w", encoding="utf-8") as f:
+                f.write(content)
+        except OSError:
+            import tempfile
+            temp_path = os.path.join(tempfile.gettempdir(), clean_name)
+            with open(temp_path, "w", encoding="utf-8") as f:
+                f.write(content)
+
         return f"Report successfully saved to {clean_name}"
     except Exception as e:
         return f"Error: failed to save report ({e})"

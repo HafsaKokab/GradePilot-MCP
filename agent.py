@@ -10,8 +10,15 @@ if hasattr(sys.stdout, "reconfigure"):
     except Exception:
         pass
 
+from pathlib import Path
 from dotenv import load_dotenv
 from fastmcp import Client as FastMCPClient
+from fastmcp.client.auth.oauth import OAuth
+from key_value.aio.stores.filetree import (
+    FileTreeStore,
+    FileTreeV1CollectionSanitizationStrategy,
+    FileTreeV1KeySanitizationStrategy,
+)
 from langchain.agents import create_agent as lc_create_agent
 from langchain.mcp import MCPAdapter
 
@@ -416,12 +423,25 @@ async def talk():
 
             try:
 
-                # Support authentication using FASTMCP_KEY if provided
-                if FASTMCP_KEY:
-                    client = FastMCPClient(MCP_URL, auth=FASTMCP_KEY)
-                    adapter_cm = MCPAdapter(client)
+                # Connect to MCP server (supports local unauthenticated/bearer and remote Horizon OAuth)
+                is_local = MCP_URL.startswith("http://127.0.0.1") or MCP_URL.startswith("http://localhost")
+                if is_local:
+                    if FASTMCP_KEY:
+                        client = FastMCPClient(MCP_URL, auth=FASTMCP_KEY)
+                    else:
+                        client = FastMCPClient(MCP_URL)
                 else:
-                    adapter_cm = MCPAdapter(MCP_URL)
+                    store_dir = Path(".fastmcp_auth")
+                    store_dir.mkdir(parents=True, exist_ok=True)
+                    token_storage = FileTreeStore(
+                        data_directory=store_dir,
+                        key_sanitization_strategy=FileTreeV1KeySanitizationStrategy(store_dir),
+                        collection_sanitization_strategy=FileTreeV1CollectionSanitizationStrategy(store_dir),
+                    )
+                    oauth = OAuth(token_storage=token_storage)
+                    client = FastMCPClient(MCP_URL, auth=oauth)
+
+                adapter_cm = MCPAdapter(client)
 
                 async with adapter_cm as adapter:
 

@@ -182,29 +182,42 @@ python .gemini/antigravity/brain/cb8c4c70-a073-43ea-91b7-d2a4b88fe924/scratch/te
 
 ---
 
-## 12. Deployment Instructions
+## 12. Deployment & Remote Hosting (Prefect Horizon)
 
-### Deploying the FastMCP Server
-The FastMCP server is container-ready and can be hosted on platforms such as Render, Railway, Fly.io, or Prefect Horizon:
+### Live Public Deployment
+The FastMCP server is hosted and live on **Prefect Horizon**:
+- **Hosted MCP URL:** `https://compatible-olive-pheasant.fastmcp.app/mcp`
+- **Authentication:** OAuth 2.1 with persistent refresh tokens in `.fastmcp_auth/`
+- **Transport:** HTTP / Streamable HTTP (`/mcp` endpoint)
 
-1. **Root Directory**: `server/`
-2. **Build Command**: `pip install -r requirements.txt`
-3. **Start Command**: `python server.py`
-4. **Environment Variables**:
-   - `PORT`: Set by hosting provider (default: `8000`).
-   - `FASTMCP_KEY`: (Optional) Set a secret authentication token if required.
-
-### Updating Client Configuration
-Once deployed, set the public server URL in your `.env`:
+### Connecting to the Live MCP Server
+To run the agent against the live cloud MCP server, configure your `.env`:
 ```env
-MCP_URL=https://your-public-mcp-server-domain.com/mcp
-FASTMCP_KEY=your_secret_token_if_configured
+GROQ_API_KEY=your_groq_api_key_here
+MCP_URL=https://compatible-olive-pheasant.fastmcp.app/mcp
 ```
+When running `python agent.py`, the agent automatically uses `OAuth` with persistent, Windows-sanitized file storage (`.fastmcp_auth/`). On first run, it prompts for a one-click browser authorization, then securely caches and refreshes tokens indefinitely without requiring repeated logins.
+
+### Running Locally
+To run the server locally on your machine instead:
+1. Start the server in terminal 1:
+   ```bash
+   python server/server.py
+   ```
+2. Set `.env` to local:
+   ```env
+   MCP_URL=http://127.0.0.1:8000/mcp
+   ```
+3. Start the agent in terminal 2:
+   ```bash
+   python agent.py
+   ```
 
 ---
 
 ## 13. Submission & Links
 
-- **Public MCP Server URL**: https://compatible-olive-pheasant.fastmcp.app/mcp
-- **GitHub Repository**: [GradePilot-MCP](https://github.com/HafsaKokab/GradePilot-MCP)
-- **Roll Number**: `BCSF24M051`
+- **Student Roll Number:** `BCSF24M051`
+- **GitHub Repository:** [https://github.com/HafsaKokab/GradePilot-MCP](https://github.com/HafsaKokab/GradePilot-MCP)
+- **Live Hosted MCP Server URL:** [https://compatible-olive-pheasant.fastmcp.app/mcp](https://compatible-olive-pheasant.fastmcp.app/mcp)
+- **Deployment Platform:** Prefect Horizon (CloudFront + Serverless FastMCP)
